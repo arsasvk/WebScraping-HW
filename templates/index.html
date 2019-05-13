@@ -1,0 +1,97 @@
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Mission To Mars</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+
+	<body>
+		
+		<div class="jumbotron text-center">
+			<h1 >Mission to Mars</h1>
+			<p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+
+		</div>
+		<div class="container">
+			<h2 >Latest Mars News</h2>
+
+			<h3>{{ m_data.NewsTitle }}</h3>
+			<p>{{ m_data.Paragraph }}</p>
+		</div>
+		<hr>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-8 col-sm-12">
+					<h3>Featured Mars Image</h3>
+					<img src="{{ m_data.FeaturedImage }}" alt="FeaturedImage" class="float-left" height="98%" width="98%">
+
+
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-12">
+					<div class="card" style="width: 18rem;" >
+						<div class="card">
+							<h3 class="card-title">Current Weather On Mars</h3>
+							<p class="card-text">{{m_data.Weather}}</p>
+						</div>  
+					</div>
+				</div>
+
+				
+				
+				<div class="col">
+					<h3>Mars Facts</h3>
+					<div>{{m_data.MarsFacts|safe}}</div>
+
+					<hr>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<h3 style="padding-top: 40px; margin-top: 25px; text-align: center;">Mars Hemispheres</h3>
+	<div class="card-deck" >
+		<hr>
+		<div class="col-md-2">
+			<div class="row">
+				
+				{% for item in m_data.Hemispheres %}
+				<div class= "col-md-2">
+					<div class="card text-white bg-dark" style="margin: 20px;">
+						<img  src="{{ item.img_url }}" width="200" height="200"/>
+						<div class="card-body">
+							<p class="card-text">{{ item.title }}</p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+<
+</div>
+
+
+
+
+
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+crossorigin="anonymous"></script>
+</body>
+
+</html>
